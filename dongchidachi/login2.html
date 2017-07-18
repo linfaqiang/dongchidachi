@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+  <link rel="stylesheet" type="text/css" href="lib/css/mui.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/css/mui.picker.css">
+  <link rel="stylesheet" type="text/css" href="lib/css/mui.poppicker.css">
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/login2.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+   <!-- <img class="bg-img" src="images/bg2.png"> -->
+   <section>
+      <div class="put-container">
+          <div class="head-portrait">
+              <b><img src="images/gird.png"></b>
+          </div>
+          <div class="put-text">
+             <div class="icon"></div>
+             <h4>郭靖</h4>
+             <div class="separate"></div>
+             <h6>你的标准代谢</h6>
+             <div class="put">
+                <!-- <input id="stand" type="button" value="2400Kcal" readonly="readonly"> -->
+                <span id="stand" class="put-span">2400Kcal</span>
+             </div>
+             <p class="pink">BMI值：<span class="BMI-box">超重</span></p>
+             <div class="separate"></div>
+             <h6>目标体重</h6>
+             <div class="put">
+                <!-- <input type="button" value="71kg" id="targetW"> -->
+                <span id="targetW" class="put-span">71kg</span>
+             </div>
+             <div class="proposal">建议你的目标体重在<span>71kg</span></div>
+          </div>
+      </div>
+      <div class="text-content">
+         <p>减肥 ≠ 惹急挨饿</p>
+         <div class="btn"><a class="login2">next</a></div>
+         <div class="link"><a href="login.html">back</a></div>
+         <div class="line"></div>
+      </div>
+   </section>
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript" src="lib/js/mui.min.js"></script>
+   <script type="text/javascript" src="lib/js/mui.picker.js"></script>
+  <script type="text/javascript" src="lib/js/mui.poppicker.js"></script>
+   <script type="text/javascript">
+      $(document).ready(function(){
+          window.location.reload;  
+          var jsonPerson=window.localStorage.getItem("person");
+              var person=JSON.parse(jsonPerson);
+          $('.put-text h4').html(person.userName);
+          person.BMI=(parseInt(person.personW)/((parseInt(person.personH)/100)*(parseInt(person.personH)/100))).toFixed(2);
+              //person.BMI=person.BMI.toFixed(2);
+          if(person.sex="女"){
+             person.REE=Math.ceil((10*parseInt(person.personW))+(6.25*parseInt(person.personH))-(5*parseInt(person.age))-161);
+            }
+            if(person.sex="男"){
+             person.REE=Math.ceil((10*parseInt(person.personW))+(6.25*parseInt(person.personH))-(5*parseInt(person.age))-165);
+            }
+
+            //console.log(person.BMI);
+              if(person.BMI<18.5){
+                $('.BMI-box').html('轻体重');
+              }
+              if(18.5<=person.BMI<24){
+                $('.BMI-box').html('正常体重');
+              }
+              if(24<=person.BMI<27){
+                $('.BMI-box').html('超重');
+              }
+              if(27<=person.BMI<30){
+                $('.BMI-box').html('轻度肥胖');
+              }
+              if(30<=person.BMI<35){
+                $('.BMI-box').html('中度肥胖');
+              }
+              if(person.BMI>=35){
+                $('.BMI-box').html('重度肥胖');
+              }
+
+              if(18.5<=person.BMI<=27){
+                 person.standard = parseInt(person.REE*1.3); 
+              }
+              if(person.BMI>27){
+                 person.standard = parseInt(person.REE*1.2);
+              }
+              $('#stand').val(person.standard+'Kcal');
+
+              /*目标体重*/
+              person.targetW= Math.ceil(22*((parseInt(person.personH)/100)*(parseInt(person.personH)/100)));
+              $('#targetW').val(person.targetW+'kg');
+              $('.proposal span').html(person.targetW+'kg');
+              var jperson=JSON.stringify(person);                  
+                  window.localStorage.setItem("person", jperson);
+              
+              
+              $('.login2').on('tap',function(){
+                  person.standard=$('#stand').val();
+                  person.targetW=$('#targetW').val();
+                  var jperson=JSON.stringify(person);                  
+                  window.localStorage.setItem("person", jperson);
+                  if(person.standard!=''&&person.targetW!==''){
+                     window.location.href="login3.html";
+                  }
+              });
+
+
+      });
+   </script>
+   <script>
+      (function(mui, doc, $) {
+        mui.init();
+        mui.ready(function() {
+          var jsonPerson=window.localStorage.getItem("person");
+              var person=JSON.parse(jsonPerson);
+          var targets=[];
+              targets[0]=Math.ceil(person.standard)+'Kcal';
+              targets[1]=Math.ceil(person.standard+10)+'Kcal';
+              targets[2]=Math.ceil(person.standard+20)+'Kcal';
+              targets[3]=Math.ceil(person.standard+30)+'Kcal';
+              targets[4]=Math.ceil(person.standard+40)+'Kcal';
+          var userPicker = new mui.PopPicker();
+          userPicker.setData(targets);
+          var stands = doc.getElementById('stand');
+          for(var i=0; i<targets.length; i++){
+              if(stands.innerHTML==targets[i]){
+                 userPicker.pickers[0].setSelectedIndex(i);
+              }
+          }
+          stands.addEventListener('tap', function(event) {
+
+            userPicker.show(function(items) {
+              stands.innerHTML = items[0];
+              //返回 false 可以阻止选择框的关闭
+              //return false;
+            });
+          }, false);
+          
+        });
+      })(mui, document, jQuery);
+    </script>
+    <script>
+      (function(mui, doc, $) {
+        mui.init();
+        mui.ready(function() {
+          var jsonPerson=window.localStorage.getItem("person");
+              var person=JSON.parse(jsonPerson);
+          var targets=[];
+              targets[0]=Math.ceil(19*((parseInt(person.personH)/100)*(parseInt(person.personH)/100)))+'kg';
+              targets[1]=Math.ceil(20*((parseInt(person.personH)/100)*(parseInt(person.personH)/100)))+'kg';
+              targets[2]=Math.ceil(21*((parseInt(person.personH)/100)*(parseInt(person.personH)/100)))+'kg';
+              targets[3]=Math.ceil(22*((parseInt(person.personH)/100)*(parseInt(person.personH)/100)))+'kg';
+              targets[4]=Math.ceil(23*((parseInt(person.personH)/100)*(parseInt(person.personH)/100)))+'kg';
+
+          var userPicker = new mui.PopPicker();
+          userPicker.setData(targets);
+          var target = doc.getElementById('targetW');
+          for(var i=0; i<targets.length; i++){
+              if(target.innerHTML==targets[i]){
+                 userPicker.pickers[0].setSelectedIndex(i);
+              }
+          }
+          target.addEventListener('tap', function(event) {
+            userPicker.show(function(items) {
+              target.innerHTML = items[0];
+              //返回 false 可以阻止选择框的关闭
+              //return false;
+            });
+          }, false);
+        });
+      })(mui, document, jQuery);
+    </script>
+</body>
+</html>

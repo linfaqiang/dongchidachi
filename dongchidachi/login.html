@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta content="email=no" name="format-detection">
+  <link rel="stylesheet" type="text/css" href="lib/css/mui.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/css/mui.picker.css">
+  <link rel="stylesheet" type="text/css" href="lib/css/mui.poppicker.css">
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+   <!-- <img class="bg-img" src="images/bg1.png"> -->
+   <section>
+      <div class="put-container">
+          <div class="head-portrait">
+              <b><img src="images/gird.png"></b>
+          </div>
+          <ul>
+            <li><input id="userName" type="text" value="科比"></li>
+            <li><input id="personW" type="text" value="86kg" readonly="readonly" onfocus="this.onblur();"></li>
+            <li><input id="age" type="text" value="28岁" readonly="readonly"></li>
+            <li><input id="personH" type="text" value="175cm" readonly="readonly"></li>
+          </ul>
+          <div class="direction">
+             <b class="bl b-icon1"></b>
+             <span>or</span>
+             <b class="br b-icon2"></b>
+          </div>
+      </div>
+      <div class="text-content">
+         <p>减肥 ≠ 疯狂运动</p>
+         <div class="btn"><a class="nextPage" href="javascript:;">next</a></div>
+         <div class="link"><a href="setup.html">略过</a></div>
+         <div class="line"></div>
+      </div>
+   </section>
+   <div class="flag-container"></div>
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript" src="lib/js/mui.min.js"></script>
+   <script type="text/javascript" src="lib/js/mui.picker.js"></script>
+   <script type="text/javascript" src="lib/js/mui.poppicker.js"></script>
+   <script type="text/javascript" src="js/layer.js"></script>
+   <script type="text/javascript" src="js/layer2.js"></script>
+   <script type="text/javascript" src="js/layer3.js"></script>
+   <script>
+      (function(mui, doc, $) {
+        mui.init();
+        mui.ready(function() {
+          //体重
+          var userPicker1 = new mui.PopPicker({layer: 3});          
+              userPicker1.setData(layer);
+          defaultValue('personW',userPicker1,3,0);//设置默认值
+          $('#personW').on('tap', function(event) {
+            userPicker1.show(function(items) {
+              var value=parseInt(items[0].text+items[1].text+items[2].text);
+              $('#personW').val(value+'kg');
+            });
+          });        
+      });
+
+          //年龄
+          var userPicker2 = new mui.PopPicker({layer: 2});
+              userPicker2.setData(layer2);
+          defaultValue('age',userPicker2,2,1);//设置默认值
+          $('#age').on('tap', function(event) {
+            userPicker2.show(function(items) {
+              $('#age').val(items[0].text+items[1].text+'岁');
+            });
+          });
+
+          //身高
+          var userPicker3 = new mui.PopPicker({layer: 3});
+              userPicker3.setData(layer3);
+          defaultValue('personH',userPicker3,3,1);//设置默认值
+          $('#personH').on('tap', function(event) {
+            userPicker3.show(function(items) {
+              $('#personH').val(items[0].text+items[1].text+items[2].text+'cm');
+            });
+          });
+
+          //设置默认值
+          function defaultValue(el, picker, layer, difA){
+            var el = document.getElementById(el);
+            var elNum = parseInt(el.value);
+            var elA,elB,elC;
+               
+            if(layer==2){
+              elA = el.value.substring(0,1);
+              elB = el.value.substring(1,2);
+              picker.pickers[0].setSelectedIndex(elA-difA);
+              picker.pickers[1].setSelectedIndex(elB);
+            }
+            if(layer==3){
+              elA = el.value.substring(0,1);
+              elB = el.value.substring(1,2);
+              elC = el.value.substring(2,3);
+              picker.pickers[0].setSelectedIndex(elA-difA);
+              picker.pickers[1].setSelectedIndex(elB);
+              picker.pickers[2].setSelectedIndex(elC);
+              if(elNum<100){
+                picker.pickers[0].setSelectedIndex(0);
+                picker.pickers[1].setSelectedIndex(elA-difA);
+                picker.pickers[2].setSelectedIndex(elB);
+              }
+            }
+                
+            
+          }
+      })(mui, document, jQuery);
+    </script>
+   <script type="text/javascript">
+     $(document).ready(function(e) {
+         var person={};
+         var active=false;
+             person.sex= '';
+          $('.b-icon1').on('click',function(){
+              if(active==false){
+                $(this).removeClass('bl').addClass('bl-active');
+                $('.b-icon2').removeClass('br-active').addClass('br');
+                person.sex="男";
+              }else{
+                $(this).removeClass('bl-active').addClass('bl');
+              }
+          });
+          
+          var activeB=false;
+          $('.b-icon2').on('click',function(){
+              if(activeB==false){
+                $(this).removeClass('br').addClass('br-active');
+                $('.b-icon1').removeClass('bl-active').addClass('bl');
+                person.sex="女";
+              }else{
+                $(this).removeClass('br-active').addClass('br');
+              }
+          });
+
+         $('.nextPage').on('tap',function(){
+            person.userName= $('#userName').val();
+                 person.age= $('#age').val();
+             person.personW=$('#personW').val();
+             person.personH=$('#personH').val();
+             var jsonPerson=JSON.stringify(person);
+             window.localStorage.setItem("person", jsonPerson);
+             if(person.userName==''){
+                flag('.flag-container','姓名不能为空！','1rem',2000,500);
+                return false;
+              }else if(person.age==''){
+                flag('.flag-container','年龄不能为空！','1rem',2000,500);
+                return false;
+              }else if(person.personW==''){
+                flag('.flag-container','体重不能为空！','1rem',2000,500);
+                return false;
+              }else if(person.personH==''){
+                flag('.flag-container','身高不能为空！','1rem',2000,500);
+                return false;
+              }else if(person.sex==''){
+                flag('.flag-container','请选择性别','1rem',2000,500);
+                return false;
+              }else{
+                window.location.href="login2.html";
+              }
+          });
+          function flag(node,text,h,time,speed){
+             $(node).html(text).stop().animate({height: h,lineHeight: h,opacity: 1},speed);setTimeout(function(){$(node).html('').stop().animate({height: 0,lineHeight: 0,opacity: 0},speed);},time);
+            }    
+     });
+   </script>
+   
+</body>
+</html>

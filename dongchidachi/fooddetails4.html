@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/fooddetails.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+  <div class="main-container">
+    <div class="main">
+      <div class="header">
+          <a href="javascript:void(0)">
+            <img class="video-img" src="images/default.png">
+            <i class="video-icon"></i>
+          </a>
+          <!-- <video style="width:6.4rem;height:3.5rem;" class="video" preload="auto" poster="#" x5-video-orientation="landscape">
+            <source src='http://nti56.slooong.net/upload/201705/16/201705161142439295.mp4' type="video/mp4">
+          </video> -->
+      </div>
+     </div>
+     <div class="section">
+        <div class="img-container"><img src="images/icon/008_03.png"></div>
+        <div class="name-container">
+          <h1>宫保鸡丁</h1>
+          <p>150Kcal</p>
+        </div>
+        <div class="food-list">
+           <h3>食材</h3>
+           <ul>
+             <li>
+                <div class="num"><span class="food-name">料酒料酒</span><span>50 g</span></div>
+                <div class="num"><span class="food-name">辣椒</span><span>3 根</span></div>
+                <div class="num"><span class="food-name">葱花</span><span>少许</span></div>
+             </li>
+             <li>
+                <div class="num"><span class="food-name">料酒料酒料</span><span>2 汤匙</span></div>
+                <div class="num"><span class="food-name">生姜</span><span>50 g</span></div>
+                <div class="num"><span class="food-name">红糖</span><span>2 汤匙</span></div>
+             </li>
+           </ul>
+        </div>
+        <div class="btn"><button>营养成分</button></div>
+        <div class="data-list">
+            <ol>
+             <li class="red">
+                <span>难度</span>
+                <b>容易</b>
+             </li>
+             <li class="yellow">
+                <span>烹煮时间</span>
+                <b>30<em>分钟</em></b>
+             </li>
+            </ol>
+        </div>
+      </div>
+   </div>
+  </div>
+   <div class="opacity-container"></div>
+   <div class="prompt-container">
+      <ol>
+        <li>
+          <b>营养元素</b>
+          <span>Nutrient elements</span>
+        </li>
+        <li>
+          <b>营养元素含量</b>
+          <span>Nutrient content</span>
+        </li>
+        <li>
+          <b>单位</b>
+          <span>unit</span>
+        </li>
+      </ol>
+      <dl>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+        <dd>
+          <span>营养总和</span>
+          <span>营养</span>
+          <span>Kcal</span>
+        </dd>
+      </dl>
+      <div class="close-container"></div>
+   </div> 
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function() {
+      /*$('.video-icon').on('click',function(){
+          $(this).siblings('img').hide();
+          $(this).siblings('video').trigger('play').attr('controls',true);
+      });*/
+      var foodName=[];
+        $('.food-name').each(function(index) {
+            foodName.push($('.food-name').eq(index).width());      
+         });
+        var foodNameMax= foodName.max();
+        $('.food-name').each(function(item) {
+          $('.food-name').eq(item).width(foodNameMax);
+           $('.food-name').eq(item).css('overflow','hidden');    
+        });
+
+        $('.btn button').on('click',function(event){
+          event.stopPropagation();
+          $(document).css({'overflow':'hidden','height':'100%'});
+           $(document.body).css({'overflow':'hidden','height':'100%'});
+           $('html,body').css({'overflow':'hidden','height':'100%'});
+          $('.opacity-container').show();
+          $('.prompt-container').addClass('on');
+       });
+       
+       $('.close-container').on('click',function(event){
+           event.stopPropagation();
+          $(document).css({'overflow':'auto','height':'auto'});
+          $(document.body).css({'overflow':'auto','height':'auto'});
+          $('html,body').css({'overflow':'auto','height':'auto%'});
+          $('.opacity-container').hide();
+          $('.prompt-container').removeClass('on');         
+       });
+       $('.opacity-container').on('touchend',function(e){
+          $('.prompt-container dl').css('overflow-y','auto');
+       });
+     });
+     //最大值
+    Array.prototype.max = function() { 
+      var max = this[0];
+        var len = this.length; 
+        for (var i = 1; i < len; i++){ 
+          if (this[i] > max) { 
+            max = this[i]; 
+          } 
+      } 
+      return max;
+    }
+   </script>
+</body>
+</html>

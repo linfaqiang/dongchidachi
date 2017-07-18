@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/fooddetails2.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+   <header>
+       <img src="images/niu.jpg">
+   </header>
+   <section>
+      <div class="img-container"><img src="images/icon/008_03.png"></div>
+      <div class="name-container">
+        <h1>意大利牛肉谷物饭 <img src="images/icon/xing3.png"></h1>
+        <p>150Kcal</p>
+      </div>
+      <div class="food-list">
+         <h3>食材</h3>
+         <ul>
+           <li>
+              <p><span>五谷饭</span><span>200 g</span></p>
+              <p><span>肉酱</span><span>50 g</span></p>
+              <p><span>混合蔬菜粒</span><span>少许</span></p>
+           </li>
+           <li>
+              <p><span>番茄洋葱莎</span><span>50 g</span></p>
+              <p><span>牛肉</span><span>50 g</span></p>
+              <p><span>黑椒芝士粉</span><span>少许</span></p>
+           </li>
+         </ul>
+      </div>	
+      <div class="data-list">
+         <ol>
+           <li>
+              <span>难度</span>
+              <b>容易</b>
+           </li>
+           <li>
+              <span>制作时间</span>
+              <b>30<em>分钟</em></b>
+           </li>
+         </ol>
+      </div>
+      <div class="video-container">
+         <div class="video-inner">
+            <video id="food_video" class="video" preload="auto" poster="images/food3.png">
+              <source src='images/video/video.mp4' type="video/mp4">
+            </video>
+            <span class="video-btn"></span>
+         </div>
+         <div class="video-text">制作时间：<span>30分钟</span></div>
+      </div>
+      <div class="btn-container"><a href="javascript:;">纤裸色配送购买</a></div>
+   </section>
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function() {
+     	var foodVideo=document.querySelector('#food_video');
+     	    videoBtn =document.querySelector('.video-btn');
+     	    videoBtn.addEventListener('touchend',function(){
+     		this.style.display= 'none';
+     		foodVideo.play();
+     		foodVideo.setAttribute('controls',true);
+     	});
+     });
+   </script>
+</body>
+</html>

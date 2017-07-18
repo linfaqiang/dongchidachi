@@ -1,0 +1,203 @@
+header{
+	padding: 0 .34rem;
+}
+header h1{
+	padding: .3rem 0; 
+	margin-bottom: .3rem;
+	font-size: 16px;
+	color: #595757;
+	font-size: .32rem;
+	text-align: center;
+	border-bottom: .02rem solid #dbdcdc;
+}
+section{
+	padding: 0 .34rem .8rem .34rem;
+}
+section ul li{
+   position: relative;
+   margin-bottom: .15rem;
+   color: #808080;
+}
+section ul li:before{
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: .8rem;
+   height: .6rem;
+}
+section ul li.protein{
+   background: url(../images/icon/protein.png) left top no-repeat;
+   background-size: .6rem;
+}
+section ul li.fat{
+   background: url(../images/icon/fat.png) left top no-repeat;
+   background-size: .6rem;
+}
+section ul li.carbon{
+   background: url(../images/icon/carbon.png) left top no-repeat;
+   background-size: .6rem;
+}
+section ul li.fibre{
+   background: url(../images/icon/fibre.png) left top no-repeat;
+   background-size: .6rem;
+}
+section ul li h3{
+	position: relative;
+	margin-left: .8rem;
+	line-height: .56rem;
+	font-size: 15px;
+	border-bottom: .02rem solid #d4d5d5;
+}
+section ul li h3 span{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	line-height: .38rem;
+	font-size: 10px;
+}
+section ul li .put{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	margin-top: .16rem;
+	width: 5.66rem;
+	height: .7rem;
+	line-height: .7rem;
+	border-radius: .08rem;
+}
+section ul li.protein .put{
+   border: 1px solid #da4654;
+}
+section ul li.fat .put{
+   border: 1px solid #f5a924;
+}
+section ul li.carbon .put{
+   border: 1px solid #009844;
+}
+section ul li.fibre .put{
+   border: 1px solid #87b839;
+}
+section ul li .prohibit{
+    background-color:#f2f2f2;
+}
+section ul li .put span{
+	display: block;
+	height: 100%;
+	color: #fff;
+	font-size: 14px;
+	border-radius: .05rem;
+}
+section ul li .put span.recipes{
+    width: 45%;
+    text-align: center;
+}
+section ul li.protein .put span.recipes{
+    background-color: #da4654;
+}
+section ul li.fat .put span.recipes{
+    background-color: #f5a924;
+}
+section ul li.carbon .put span.recipes{
+    background-color: #009844;
+}
+section ul li.fibre .put span.recipes{
+    background-color: #87b839;
+}
+section ul li .put span.recipe-unit{
+	width: 40%;
+	padding-right: .3rem;
+	color: #808080;
+    text-align: right;
+}
+section ul li .btn{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	justify-content: flex-end;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	margin-top: .1rem;
+	padding: 0 .05rem;
+}
+section ul li .btn a{
+	display: block;
+	width: 1.4rem;
+	height: .42rem;
+	line-height: .42rem;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	margin-left: .06rem;
+	border-radius: .08rem;
+	background-color: #8cc232;
+}
+section ul li .btn a.practice:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: .18rem;
+	height: .21rem;
+	margin-right: .05rem;
+	background: url(../images/icon/practice.png) center no-repeat;
+	background-size: 100%;
+}
+
+footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+footer .btn{
+   display: flex;
+   display: -webkit-box;
+   display: -webkit-flex;
+   justify-content: center;
+   -webkit-box-pack: center;
+   -webkit-justify-content: center;
+   width: 100%;
+}
+footer .btn a{
+	flex: 1;
+	-webkit-flex: 1;
+	-webkit-box-flex: 1;
+	display: block;
+	height: .7rem;
+	line-height: .7rem;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	background-color: #8cc232;
+}
+footer .btn a:last-child{
+	border-left: 1px solid #ebf8d6;
+}
+footer .btn a.practice:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: .23rem;
+	height: .28rem;
+	margin-right: .1rem;
+	background: url(../images/icon/practice2.png) center no-repeat;
+	background-size: 100%;
+}
+
+.msg-icon{
+  padding: 1rem .2rem 0 .2rem;
+  display: none;
+}
+.msg-icon i,.msg-icon span{
+  display: block;
+  text-align: center;
+}
+.msg-icon i img{display:inline-block;}
+.msg-icon span{
+  margin-top: .2rem;
+  color: #666;
+  font-size: .3rem;
+}

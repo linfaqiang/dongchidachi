@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/motion.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+   <header>
+       <img src="images/girl.png">
+   </header>
+   <section>
+      <div class="img-container"><img src="images/icon/01_02.png"></div>
+      <div class="name-container">
+        <h1>添加运动 <img src="images/icon/xing.png"></h1>
+      </div>
+      <div class="search-container">
+        <input type="search" />
+        <span>输入运动名称搜索运动</span>
+      </div>
+      <div class="motion-list">
+         <ul>
+           <li>
+              <span>快跑</span>
+              <span>30分钟 / <b>281</b>Kcal</span>
+           </li>
+           <li>
+              <span>慢跑</span>
+              <span>30分钟 / <b>281</b>Kcal</span>
+           </li>
+           <li>
+              <span>深蹲</span>
+              <span>30分钟 / <b>261</b>Kcal</span>
+           </li>
+           <li>
+              <span>卷腹</span>
+              <span>30分钟 / <b>241</b>Kcal</span>
+           </li>
+           <li>
+              <span>俯卧撑</span>
+              <span>30分钟 / <b>301</b>Kcal</span>
+           </li>
+         </ul>
+      </div>
+      
+   </section>
+   <footer>
+       <ol>
+         <li><a class="motion-a" href="javascript:;">运动 0 Kcal</a></li>
+         <li><a class="complete" href="javascript:;">完   成</a></li>
+       </ol>
+   </footer>
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">
+      $(document).ready(function(){
+          var selected = false;
+          $('.motion-list>ul>li').on('click',function(){
+              if(!selected){
+                  $('.motion-list>ul>li').removeClass('active');
+                  $(this).addClass('active');
+                  selected =true;
+              }else{
+                  if($(this).hasClass('active')){
+                     $(this).removeClass('active');
+                     selected = false;
+                  }              
+              }
+             
+              if($('.motion-list>ul>li').hasClass('active')){
+                  $('footer>ol>li').css('background-color','#ff9363');
+              }else{
+                  $('footer>ol>li').css('background-color','#ffde9a');
+              }
+          });
+      });
+   </script>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         var jperson=window.localStorage.getItem("person");
+         var person=JSON.parse(jperson);
+         $('.search-container > span').on('click',function(){
+             $(this).hide();
+             $(this).siblings('input').focus();
+         });
+         $('.search-container > input').on('focus',function(){
+             $(this).siblings('input').hide();
+         });
+         $('.search-container > input').on('blur',function(){
+             if($(this).val()==''){
+                $(this).siblings('span').show();
+             }
+         });
+         
+         person.count=0;
+         $('.motion-list li').on('click',function(){
+             if(!$(this).hasClass('active')){
+                $(this).addClass('active');
+                person.count+=parseInt($(this).find('b').html());
+                $('.motion-a').html('运动 '+ person.count +' Kcal');
+             }else{
+                if($(this).hasClass('active')){
+                   $(this).removeClass('active');
+                   person.count-=parseInt($(this).find('b').html());
+                   $('.motion-a').html('运动 '+ person.count +' Kcal');
+                }
+                
+             }
+         });
+         
+
+         $('.complete').on('click',function(){
+             var jperson=JSON.stringify(person);                  
+             window.localStorage.setItem("person", jperson);
+             window.location.href="list4.html";
+         });
+      });
+   </script>
+</body>
+</html>

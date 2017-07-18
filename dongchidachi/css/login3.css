@@ -1,0 +1,178 @@
+body{
+  background-image:-webkit-linear-gradient(180deg, #ff8080, #ff3d57);
+  background-image:linear-gradient(180deg, #ff8080, #ff3d57);
+}
+.bg-img{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+section{
+  position: relative;
+  width: 100%;
+  padding-top: 2rem;
+  z-index: 1;
+}
+.put-container{
+  position: relative;
+  width: 3.56rem;
+  height: 4.88rem;
+  padding: 0 .4rem;
+  margin: 0 auto;
+  border-radius: .16rem;
+  background: url(../images/icon/bgw.png) center no-repeat;
+  background-size: 100%;
+}
+.put-container .put-text{
+  padding-top: .52rem;
+}
+.put-container .put-text .icon{
+  width: .26rem;
+  height: .26rem;
+  margin: 0 auto;
+  background: url(../images/icon/person.png) center no-repeat;
+  background-size: 100%;
+}
+.put-container .put-text h4{
+  margin-top: .05rem;
+  color: #009a92;
+  font-size: 15px;
+  line-height: .44rem;
+  text-align: center;
+}
+.put-container .put-text .separate{
+  width: 1px;
+  height: .17rem;
+  margin: 0 auto;
+  background-color: #d9d8d5;
+}
+.put-container .put-text h6{
+  font-size: 12px;
+  line-height: .4rem;
+  text-align: center;
+}
+.put-container .put-text .btn{
+  position: relative;
+}
+.put-container .put-text button{
+  display: block;
+  width: 3.54rem;
+  height: .55rem;
+  margin: 0 auto;
+  margin-bottom: .15rem;
+  color: #727171;
+  font-size: 14px;
+  text-align: center;
+  border-radius: .1rem;
+  border: 1px solid #d9d8d5;
+  background-color: transparent;
+}
+.put-container .put-text button.pink-btn{
+  color: #de5f85;
+}
+.head-portrait{
+  position: absolute;
+  left: 50%;
+  top: -1.2rem;
+  transform: translateX(-50%);
+  width: 1.32rem;
+  height: 1.32rem;
+  padding: .14rem;
+  border-radius: 50%;
+  border-radius: 1.45rem;
+}
+.head-portrait b{
+  display: block;
+  width: 1.24rem;
+  height: 1.24rem;
+  padding: .04rem;
+  border-radius: 50%;
+  border-radius: 1.24rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.head-portrait b img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.direction{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-justify-content: center;
+  padding-top: .6rem;
+}
+.direction b,.direction span{
+  display: block;
+}
+.direction span{
+  width: 1.28rem;
+  font-size: 16px;
+  text-align: center;
+}
+.direction b{
+  width: .34rem;
+  height: .5rem;
+}
+.direction b.bl{
+  background: url(../images/icon/bl.png) center no-repeat;
+  background-size: 100%;
+}
+.direction b.br{
+  background: url(../images/icon/br.png) center no-repeat;
+  background-size: 100%;
+}
+
+.text-content{
+  padding-top: .2rem;
+}
+.text-content p{
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  line-height: .88rem;
+}
+.text-content .btn a{
+  display: block;
+  width: 3.56rem;
+  height: .74rem;
+  line-height: .74rem;
+  padding: 0 .4rem;
+  margin: 0 auto;
+  border-radius: .1rem;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  background-color: #8cc232;
+}
+.text-content .link{
+  text-align: center;
+  line-height: .88rem;
+  font-size: 15px;
+}
+.text-content .link a{
+  color: #fff;
+  text-align: center;
+}
+.text-content .line{
+  width: 2.1rem;
+  height: .17rem;
+  margin: 0 auto;
+  margin-top: .3rem;
+  background: url(../images/icon/line.png) center no-repeat;
+  background-size: 100%;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}

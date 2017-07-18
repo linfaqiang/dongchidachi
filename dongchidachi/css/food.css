@@ -1,0 +1,278 @@
+/*main-container*/
+.main-container{
+	padding: .3rem .2rem 0 .2rem;
+}
+.main{
+	padding: .24rem;
+	margin-bottom: .2rem;
+	border-radius: .15rem;
+	background-color: #f7f8f8;
+}
+.header{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	justify-content: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	width: 100%;
+	height: 3.5rem;
+	overflow: hidden;
+}
+/*section*/
+.section{
+	position: relative;
+	width: 100%;
+	z-index: 120;
+}
+.name-container{
+	padding: .1rem 0 .3rem 0; 
+}
+.name-container h1{
+	position: relative;
+	padding: .1rem 0;
+	line-height: .44rem;
+	color: #595757;
+	font-weight: 600;
+	font-size: 16px;
+	text-align: center;
+}
+.name-container h1:before,.name-container h1:after{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: .22rem;
+	height: .43rem;
+	background: url(../images/icon/xing4.png) center no-repeat;
+	background-size: .22rem .21rem;
+}
+.name-container h1:before{
+	margin-right: .2rem;
+}
+.name-container h1:after{
+	margin-left: .2rem;
+}
+.name-container p{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+   color: #808080;
+   font-weight: 600;
+   font-size: 14px;
+   text-align: center;
+}
+.name-container p:before,.name-container p:after{
+   content: "";
+   display: block;
+   width: 1.95rem;
+   height: .02rem;
+   background-color: #dddede;
+}
+.food-list{
+	position: relative;
+	padding: .16rem 0;
+	margin: .25rem .2rem;
+	border-radius: .1rem;
+	background-color: #eff0f0;
+}
+.food-list h3{
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: .1rem;
+}
+.food-list ul{
+    display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	justify-content: space-around;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-around;
+}
+.food-list ul li{
+	overflow-x: hidden;
+}
+.food-list ul li .num{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	color: #808080;
+	font-size: 14px;
+    line-height: .28rem;
+}
+.food-list ul li .num span{
+	display: block;
+	padding: .05rem 0;
+	font-size: .2rem;
+	overflow: hidden;
+}
+.food-list ul li .num span:first-child{
+	width: auto;
+	padding-right: .1rem;
+	text-align: right;
+}
+.food-list ul li .num span:last-child{
+	width: .6rem;
+	text-align: left;
+    padding-left: .1rem;
+	border-left: .02rem solid #bababb;
+}
+.btn{
+	width: 100%;
+	margin-top: .26rem;
+	text-align: center;
+}
+.btn a{
+	display: block;
+	width: 2.62rem;
+	height: .5rem;
+    line-height: .5rem;
+    margin: 0 auto;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	border-radius: .1rem;
+	background-color: #8cc232;
+}
+.btn a:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: .22rem;
+	height: .5rem;
+	margin-right: .12rem;
+	background: url(../images/icon/recipes.png) center no-repeat;
+	background-size: .22rem;
+}
+.data-list{
+	
+}
+.data-list ol{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+}
+.data-list ol li{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+    flex-wrap: -webkit-wrap;
+    box-lines: multiple;
+    -webkit-box-lines:multiple;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	width: 1.76rem;
+	height: .57rem;
+	padding: .1rem 0 .05rem 0;
+	border-radius: .06rem;
+}
+.data-list ol li.red{
+    border: 1px solid #da4755;
+}
+.data-list ol li.yellow{
+    border: 1px solid #f4af35;
+}
+.data-list ol li.green{
+    border: 1px solid #0b9c4c;
+}
+.data-list ol li b,.data-list ol li span{
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.data-list ol li span{
+    color: #808080;
+    font-weight: 600;
+    font-size: .18rem;
+    line-height: .2rem;
+}
+.data-list ol li b{
+    color: #3e3a39;
+    font-weight: 600;
+    font-size: .22rem;
+    padding-top: .05rem;
+    line-height: .22rem;
+}
+.data-list ol li b em{
+	color: #808080;
+	font-style: normal;
+    font-size: 7px;
+}
+.text-container{
+	padding: .2rem;
+}
+.video-container{	
+	width: 100%;
+    height: 100%;
+}
+.video-container .video-inner{
+    position:relative;
+	width: 100%;
+    height: 100%;
+    border-radius: .08rem;
+    overflow: hidden;
+}
+.video-container .video-inner span{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../images/icon/video.png) center no-repeat;
+	background-size: .8rem;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 110;
+}
+.video-container .video-inner img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+.video-container .video-inner video{
+	width: 100%;
+	height: 100%;
+}
+.video-container .video-text{
+	line-height: .45rem;
+	font-size: 10px;
+	text-align: center;
+}
+footer{
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .7rem;
+    z-index: 999;
+}
+.btn-container{
+   
+}
+.btn-container a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: .7rem;
+	margin: 0 auto;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	background-color: #8cc232;
+}
+

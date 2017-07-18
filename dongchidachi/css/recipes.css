@@ -1,0 +1,66 @@
+section{
+	padding-top: .3rem;
+}
+.desh-list{
+	padding: 0 .18rem;
+}
+.desh-list ul li{
+	margin-bottom: .1rem;
+	border-radius: .06rem;
+	background-color: #eff0f0;
+}
+.desh-list ul li a{
+	display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	padding: .12rem .16rem .12rem .32rem;
+	color: #727171;
+}
+.desh-list ul li .content-text{
+	position: relative;
+	width: 2.8rem;
+}
+.desh-list ul li .content-text h3{
+	line-height: .28rem;
+	font-size: 14px;
+}
+.desh-list ul li .content-text p{
+	margin-top: .05rem;
+	font-size: 12px;
+}
+.desh-list ul li .content-text button{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 1.46rem;
+	height: .4rem;
+	margin-top: .1rem;
+	border-radius: .06rem;
+	background-color: #8cc232;
+	color: #fff;
+	font-size: 11px;
+}
+.desh-list ul li .content-text button:before{
+	content: "";
+	display: inline-block;
+    vertical-align: middle;
+    width: .21rem;
+    height: .21rem;
+    margin-right: .1rem;
+    background: url(../images/icon/recipes.png) center no-repeat;
+    background-size: 100%;
+}
+.desh-list ul li .content-img {
+    width: 2.76rem;
+	height: 1.4rem;
+	border-radius: .08rem;
+	overflow: hidden;
+}
+.desh-list ul li .content-img img{
+	overflow: hidden;
+	object-fit: cover;
+	-webkit-object-fit: cover;
+}

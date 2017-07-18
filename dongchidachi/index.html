@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+  <style type="text/css">
+      ul li{
+        height: .5rem;
+        width: 4rem;
+        margin: 0 auto;
+        margin-top: .6rem;
+        margin-bottom: .2rem;
+        background-color: #ccc;
+      }
+      ul li a{
+        display: block;
+        text-align: center;
+      }
+  </style>
+</head>
+<body> 
+   <ul>
+     <li><a href="http://192.168.1.103:8068/login.html">1</a></li>
+     <li><a href="http://192.168.1.103:8068/login2.html">2</a></li>
+     <li><a href="http://192.168.1.103:8068/login3.html">3</a></li>
+     <li><a href="http://192.168.1.103:8068/setup.html">4</a></li>
+     <li><a href="http://192.168.1.103:8068/list.html">5</a></li>
+     <li><a href="http://192.168.1.103:8068/list2.html">6</a></li>
+     <li><a href="http://192.168.1.103:8068/fooddetails.html">7</a></li>
+     <li><a href="http://192.168.1.103:8068/recipes.html">8</a></li>
+     <li><a href="http://192.168.1.103:8068/motion.html">9</a></li>
+     <li><a href="http://192.168.1.103:8068/details.html">10</a></li>
+   </ul>
+
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">
+          function getJson(data){
+             console.log(data);
+          }
+          $.ajax({
+              url:"http://nti56.slooong.net/templates/main/js/data.js?callback=getJson",
+              async:true,
+              type:"GET",
+              dataType:"jsonp",
+              jsonp: "getJson",
+              callback:"callback",
+              success:function(data){
+                  console.log(data);
+              }
+          });
+          //addScriptTag('http://nti56.slooong.net/templates/main/js/data.js?callback=getJson')
+          function addScriptTag(src){
+              var script = document.createElement('script');
+                  script.setAttribute('type','text/javascript');
+                  script.src = src;
+                  return document.body.appendChild(script);
+          }
+   </script>
+   
+</body>
+</html>

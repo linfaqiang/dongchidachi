@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/details.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+   <header>
+   	  <h1>食材清单</h1>
+   </header> 
+   <section>
+      <ul>
+        <li class="protein">
+          <h3>蛋白质<span>Protein</span></h3>
+          <dl>
+            <dd>
+              <div class="put">
+                <span class="recipes">鸡肉</span>
+                <span class="recipe-unit">167千卡 / 50g</span>
+              </div>
+               <div class="put">
+                <span class="recipes">鸡肉</span>
+                <span class="recipe-unit">167千卡 / 50g</span>
+              </div>
+               <div class="put">
+                <span class="recipes">鸡肉</span>
+                <span class="recipe-unit">167千卡 / 50g</span>
+              </div>
+              <!-- <div class="btn">
+                <a href="javascript:;">下单订购</a>
+              </div> -->
+            </dd>
+          </dl>
+        </li>
+        <li class="carbon">
+          <h3>碳水<span>Fat</span></h3>
+          <dl>
+            <dd>
+              <div class="put">
+                <span class="recipes">鸡肉</span>
+                <span class="recipe-unit">167千卡 / 50g</span>
+              </div>
+              <div class="btn">
+                <a class="practice" href="javascript:;">食谱详情</a>
+                <a href="javascript:;">下单订购</a>
+              </div>
+            </dd>
+          </dl>
+        </li>
+        <li class="fat">
+          <h3>脂肪<span>Carbohydrate</span></h3>
+          <dl>
+            <dd>
+              <div class="put">
+                <span class="recipes">鸡肉</span>
+                <span class="recipe-unit">167千卡 / 50g</span>
+              </div>
+              <div class="btn">
+                <a class="practice" href="javascript:;">食谱详情</a>
+                <a href="javascript:;">下单订购</a>
+              </div>
+            </dd>
+          </dl>
+        </li>
+        <li class="fibre">
+          <h3>膳食纤维<span>Dietary Fiber</span></h3>
+          <dl>
+            <dd>
+              <div class="put">
+                <span class="recipes">鸡肉</span>
+                <span class="recipe-unit">167千卡 / 50g</span>
+              </div>
+              <div class="btn">
+                <a class="practice" href="javascript:;">食谱详情</a>
+              </div>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+   </section>
+   <footer>
+      <div class="btn">
+          <a class="practice" href="javascript:;">食谱详情</a>
+          <a href="javascript:;">换一批</a>
+      </div>
+   </footer>
+   <div class="msg-icon">
+      <i><img src="images/icon/msg.png"></i>
+      <span>暂时还没有信息！</span>
+   </div>
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">   
+       $(document).ready(function() {
+          $('section dd').each(function(index) {
+            var value=$('section dd').eq(index).find('span').eq(0).html();
+             if(value=="无"){
+                $('section dd').eq(index).addClass('remove');
+              }
+          });
+          $('.remove').remove();
+          $('section dl').each(function(item){
+            var size=$('section dl').eq(item).children('dd').size();
+             if(size==0){
+                $('section dl').eq(item).parent().addClass('remove-li');
+             }    
+          });
+           $('.remove-li').remove();       
+       });     
+   </script>
+</body>
+</html>

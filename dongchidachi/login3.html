@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/login3.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+   <!-- <img class="bg-img" src="images/bg3.png"> -->
+   <section>
+      <div class="put-container">
+          <div class="head-portrait">
+              <b><img src="images/gird.png"></b>
+          </div>
+          <div class="put-text">
+             <div class="icon"></div>
+             <h4>郭靖</h4>
+             <div class="separate"></div>
+             <h6>根据目标体重差</h6>
+             <h6>我们推荐周期</h6>
+             <div class="btn">
+                <button class="date1">58天</button>
+                <button class="pink-btn date2">65天</button>
+                <button class="date3">72天</button>
+             </div>
+          </div>
+      </div>
+      <div class="text-content">
+         <p>我们专业听我们的</p>
+         <div class="btn"><a class="login3">Done</a></div>
+         <div class="link"><a href="login2.html">back</a></div>
+         <div class="line"></div>
+      </div>
+   </section>
+
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">
+       $(document).ready(function(){
+          window.location.reload; 
+          var jperson=window.localStorage.getItem("person");
+           var person=JSON.parse(jperson);
+           $('.put-text h4').html(person.userName);
+           /*实际体重和目标体重差值*/
+           person.diffW= parseInt(person.personW)-parseInt(person.targetW);
+           /*每天减重最大值*/
+           person.exceed=parseInt(person.personW)*0.013/7;
+           person.exceed=person.exceed.toFixed(2);
+
+           person.targetDate=Math.ceil(person.diffW/person.exceed);
+           $('.date1').html(person.targetDate+'天');
+           $('.date2').html((person.targetDate+7)+'天');
+           $('.date3').html((person.targetDate+14)+'天');
+           $('.btn button').on('click',function(){
+              $(this).addClass('pink-btn').siblings().removeClass('pink-btn');
+           });
+           $('.login3').on('click',function(){
+               person.targetDate=$('.pink-btn').html();
+               var jperson=JSON.stringify(person);                  
+               window.localStorage.setItem("person", jperson);
+               window.location.href="list.html";
+           });
+       });
+   </script>
+</body>
+</html>

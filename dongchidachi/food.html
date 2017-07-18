@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" style="font-size:50px;">
+<head>
+	<meta charset="UTF-8">
+	<title>动吃大吃</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="lib/css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/food.css">
+	<script type="text/javascript" src="lib/js/fontSize.js"></script>
+</head>
+<body>
+  <div class="main-container">
+    <div class="main">
+      <div class="header">
+        <div class="video-container">
+            <div class="video-inner">
+             <!--  <video id="food_video" class="video" style="height: 3.5rem;" preload="auto" poster="#">
+                <source src='images/video/video.mp4' type="video/mp4">
+              </video> -->
+              <!-- <span class="video-btn"></span> -->
+              <img src="images/food2.png">
+           </div>
+        </div>
+     </div>
+     <div class="section">
+        <div class="name-container">
+          <h1>宫保鸡丁</h1>
+          <p>150Kcal</p>
+        </div>
+        <div class="data-list">
+            <ol>
+             <li class="red">
+                <span>难度</span>
+                <b>容易</b>
+             </li>
+             <li class="yellow">
+                <span>烹煮时间</span>
+                <b>30<em>分钟</em></b>
+             </li>
+             <li class="green">
+                <span>总重量</span>
+                <b>500<em>克</em></b>
+             </li>
+            </ol>
+        </div>
+        <div class="btn"><a>食谱</a></div>
+      </div>
+   </div>
+  </div>
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="472" height="400">
+     <param name="movie" value="http://finance.sina.com.cn/flash/cn.swf" />
+     <param name="quality" value="high" />
+     <param name="wmode" value="transparent">
+     <param name="wmode" value="#fff" />
+     <embed src="http://finance.sina.com.cn/flash/cn.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="472" height="400" wmode="transparent">
+     </embed> 
+   </object>
+  <!-- <object width="400" height="400" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#4,0,0,0">
+  <param name="src" value="cn.swf">
+  <embed src="http://finance.sina.com.cn/flash/cn.swf?symbol=sz300532" width="400" height="400"></embed>
+  </object> -->
+   <script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function() {
+     	$('.video-btn').on('click',function(){
+     		$(this).hide();
+        $(this).siblings('img').hide();
+        $(this).siblings('video').trigger('play').attr('controls',true);
+     	 });
+     });
+    
+     $.ajax({
+        url: "data/goods.json",
+        type: 'GET',
+        dataType: 'json',
+        success: function(result){
+          console.log(result);
+        }
+    });
+   </script>
+</body>
+</html>
